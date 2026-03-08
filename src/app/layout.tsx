@@ -17,7 +17,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "NxGeN | Where Capital and Culture Collide",
   description: "The invitation-only community for next-generation leaders shaping the future of capital, entrepreneurship, and impact.",
-  keywords: ["NxGen", "community", "capital", "entrepreneurship", "impact", "next generation", "investors", "builders"],
+  keywords: ["NxGeN", "community", "capital", "entrepreneurship", "impact", "next generation", "investors", "builders"],
   openGraph: {
     title: "NxGeN | Where Capital and Culture Collide",
     description: "The invitation-only community for next-generation leaders shaping the future of capital, entrepreneurship, and impact.",

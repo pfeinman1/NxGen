@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="absolute inset-0 z-0 hidden md:block">
           <Image
             src="/images/gallery/marina-sunset.jpg"
-            alt="NxGen Event at Steel Point Marina"
+            alt="NxGeN Event at Steel Point Marina"
             fill
             className="object-cover"
             priority

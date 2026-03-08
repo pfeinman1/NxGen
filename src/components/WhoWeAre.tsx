@@ -33,7 +33,7 @@ export default function WhoWeAre() {
             </h2>
 
             <p className="text-[1.05rem] text-pearl/50 leading-[1.8] mb-6 font-light">
-              NxGen isn&apos;t a network you attend. It&apos;s a community you belong to. We bring together people who are building the future of their industries, giving generously to lift others up, and investing in the people and ideas that matter most.
+              NxGeN isn&apos;t a network you attend. It&apos;s a community you belong to. We bring together people who are building the future of their industries, giving generously to lift others up, and investing in the people and ideas that matter most.
             </p>
 
             <p className="text-[1.05rem] text-pearl/50 leading-[1.8] mb-12 font-light">
@@ -58,7 +58,7 @@ export default function WhoWeAre() {
           >
             <Image
               src="/images/community-event.jpg"
-              alt="NxGen community members at an exclusive event"
+              alt="NxGeN community members at an exclusive event"
               fill
               className="object-cover"
             />
