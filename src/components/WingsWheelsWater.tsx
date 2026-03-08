@@ -109,46 +109,37 @@ export default function WingsWheelsWater() {
         </div>
       </div>
 
-      {/* Scrolling Image Marquee */}
-      <div className="relative overflow-hidden pb-24">
+      {/* Scrolling Image Marquee - Slows on hover */}
+      <div className="relative overflow-hidden pb-24 group/marquee">
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
         
-        <motion.div
-          className="flex gap-4"
-          animate={{
-            x: [0, -2400],
-          }}
-          transition={{
-            x: {
-              duration: 40,
-              repeat: Infinity,
-              ease: "linear",
-            },
+        <div 
+          className="flex gap-4 animate-marquee group-hover/marquee:[animation-duration:80s]"
+          style={{
+            width: 'max-content',
           }}
         >
-          {[...galleryImages, ...galleryImages, ...galleryImages].map((image, index) => (
-            <motion.div
+          {[...galleryImages, ...galleryImages, ...galleryImages, ...galleryImages].map((image, index) => (
+            <div
               key={`${image.src}-${index}`}
-              className="flex-shrink-0 w-[280px] md:w-[320px] relative cursor-pointer group"
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.3 }}
+              className="flex-shrink-0 w-[280px] md:w-[350px] relative cursor-pointer group/card"
               onClick={() => setSelectedImage(index % galleryImages.length)}
             >
-              <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden transition-transform duration-300 group-hover/card:-translate-y-2">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover/card:scale-105"
                 />
                 {/* Hover gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Lightbox Modal */}
