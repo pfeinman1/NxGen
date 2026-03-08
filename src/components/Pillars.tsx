@@ -49,9 +49,15 @@ export default function Pillars() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-pearl leading-tight mb-6 font-bold">
               Meet your neighbors.
             </h2>
-            <p className="text-lg text-text-soft leading-relaxed">
+            <p className="text-lg text-text-soft leading-relaxed mb-8">
               Every person you&apos;ll meet here is your neighbor - not just in proximity, but in purpose. NxGeN exists for those who see the world as one shared home, and who believe that real progress happens when we turn toward each other, not away.
             </p>
+            <a
+              href="#apply"
+              className="inline-block px-10 py-4 text-xs tracking-[0.2em] text-black bg-pearl hover:bg-blush rounded-full transition-all duration-300 font-medium"
+            >
+              REQUEST AN INVITATION
+            </a>
           </div>
           <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
             <Image
