@@ -8,7 +8,6 @@ const footerLinks = {
   community: [
     { name: "About NxGeN", href: "#thesis" },
     { name: "Our Pillars", href: "#community" },
-    { name: "Community Voices", href: "#testimonials" },
     { name: "Events", href: "#miami" },
   ],
   getInvolved: [
