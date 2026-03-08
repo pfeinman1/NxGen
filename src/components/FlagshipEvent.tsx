@@ -53,31 +53,14 @@ export default function FlagshipEvent() {
         style={{ opacity }}
         className="max-w-6xl mx-auto px-6 lg:px-12"
       >
-        {/* Header */}
-        <div className="text-center mb-20">
-          <p className="text-blush text-xs tracking-[0.3em] uppercase mb-8">
+        {/* Header - Left aligned */}
+        <div className="mb-20 max-w-2xl">
+          <p className="text-blush text-xs tracking-[0.3em] uppercase mb-6">
             Flagship Event
           </p>
-          {/* Logo + Miami */}
-          <div className="flex items-center justify-center gap-6 md:gap-8 mb-6">
-            <Image
-              src="/images/logo.png"
-              alt="NxGeN"
-              width={800}
-              height={224}
-              className="h-[200px] md:h-[280px] lg:h-[360px] w-auto"
-            />
-            <span className="text-7xl md:text-8xl lg:text-9xl text-pearl font-bold tracking-tight leading-none">
-              Miami
-            </span>
-          </div>
-          <p className="text-xl text-pearl-muted tracking-wide">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl text-pearl font-bold mb-6">
             November 5–8, 2026
-          </p>
-        </div>
-
-        {/* Subtitle */}
-        <div className="text-center mb-16 max-w-2xl mx-auto">
+          </h2>
           <p className="text-lg text-text-soft leading-relaxed">
             Four days. 100 curated attendees. Unbelievable experiences. Meaningful conversations. Lasting friendships.
           </p>
