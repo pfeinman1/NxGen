@@ -61,13 +61,8 @@ export default function WingsWheelsWater() {
           {/* Right side - Headline + Wings/Wheels/Water descriptions */}
           <div className="flex flex-col justify-center">
             <p className="text-blush/80 text-[11px] tracking-[0.4em] uppercase mb-8 font-light">
-              Flagship Event
+              Wings, Wheels & Water
             </p>
-            <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] text-pearl leading-[1.05] mb-8 font-serif font-light tracking-[-0.02em]">
-              Three worlds.
-              <br />
-              <span className="text-pearl/40">One extraordinary night.</span>
-            </h3>
             <p className="text-[1.05rem] text-pearl/50 leading-[1.8] mb-12 font-light max-w-lg">
               Wings, Wheels & Water brings together private aviation, collector automobiles, and world-class yachts — all curated for the next generation of capital and culture. This is not a trade show. It&apos;s the opening act.
             </p>
