@@ -44,7 +44,7 @@ export default function FlagshipEvent() {
     <section
       id="miami"
       ref={containerRef}
-      className="relative py-32 bg-black-light"
+      className="relative pt-16 pb-32 bg-black-light"
     >
       {/* Top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pearl/10 to-transparent" />
