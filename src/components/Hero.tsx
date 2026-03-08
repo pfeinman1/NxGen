@@ -25,11 +25,11 @@ export default function Hero() {
             src="/images/gallery/marina-sunset.jpg"
             alt="NxGeN Event at Steel Point Marina"
             fill
-            className="object-cover blur-[2px]"
+            className="object-cover blur-[1px]"
             priority
           />
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-black/55" />
         </div>
 
         {/* Main content */}
@@ -40,7 +40,7 @@ export default function Hero() {
             transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-center"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-light leading-[1.2] tracking-[-0.02em]">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-light leading-[1.2] tracking-[-0.02em]">
               <span className="text-pearl">The future is </span>
               <span className="text-blush italic font-normal">written</span>
               <span className="text-pearl"> together.</span>
