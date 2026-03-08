@@ -97,7 +97,7 @@ export default function Destinations() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5">
+                <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
                   <h3 className="text-sm md:text-[1.25rem] text-pearl font-serif font-light">{dest.name}</h3>
                   <p className="text-pearl/50 text-xs md:text-[0.85rem] font-light">{dest.subtitle}</p>
                 </div>
