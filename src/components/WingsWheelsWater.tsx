@@ -46,7 +46,7 @@ export default function WingsWheelsWater() {
   return (
     <section id="www" className="relative bg-black overflow-hidden">
       {/* Content section */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
         {/* Main two-column layout */}
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-24">
           {/* Left side - Image reframed to show helicopter */}

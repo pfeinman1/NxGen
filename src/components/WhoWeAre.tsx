@@ -14,7 +14,7 @@ export default function WhoWeAre() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={containerRef} className="relative py-32 lg:py-40 bg-black overflow-hidden">
+    <section ref={containerRef} className="relative py-16 lg:py-24 bg-black overflow-hidden">
       <motion.div
         style={{ opacity }}
         className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12"

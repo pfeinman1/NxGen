@@ -17,7 +17,7 @@ export default function Thesis() {
     <section
       id="thesis"
       ref={containerRef}
-      className="relative py-40 md:py-56 bg-black overflow-hidden"
+      className="relative py-20 md:py-28 bg-black overflow-hidden"
     >
       {/* Subtle decorative line */}
       <div className="absolute left-1/2 top-0 w-px h-24 bg-gradient-to-b from-transparent via-pearl/20 to-transparent" />
@@ -54,23 +54,9 @@ export default function Thesis() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="mb-24"
           >
             <p className="text-[1.35rem] md:text-[1.75rem] text-pearl/70 leading-[1.6] max-w-3xl font-light">
-              <span className="text-blush font-normal">$84 trillion</span> is transferring to Millennials and Gen Z — and at the same moment, AI is creating the greatest wealth-building opportunity in modern history.
-            </p>
-          </motion.div>
-
-          {/* Conclusion */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="pt-8"
-          >
-            <p className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] text-pearl font-serif font-light tracking-[-0.02em]">
-              It starts in <span className="text-blush">Miami.</span>
+              <span className="text-blush font-normal">$84 trillion</span> is transferring to Millennials and Gen Z — and at the same moment, AI is creating the greatest wealth-building opportunity in modern history. <span className="font-bold text-pearl">It starts in Miami.</span>
             </p>
           </motion.div>
         </motion.div>

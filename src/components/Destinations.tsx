@@ -53,7 +53,7 @@ export default function Destinations() {
   return (
     <section
       ref={containerRef}
-      className="relative py-32 bg-black overflow-hidden"
+      className="relative py-16 lg:py-20 bg-black overflow-hidden"
     >
       {/* Header */}
       <div className="max-w-6xl mx-auto px-6 lg:px-12 mb-20">

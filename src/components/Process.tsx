@@ -31,7 +31,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="relative py-32 bg-black">
+    <section className="relative py-16 lg:py-20 bg-black">
       {/* Top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pearl/10 to-transparent" />
 

@@ -35,7 +35,7 @@ export default function Pillars() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="community" className="relative py-32 bg-black-light">
+    <section id="community" className="relative py-16 lg:py-24 bg-black-light">
       {/* Top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pearl/10 to-transparent" />
 
