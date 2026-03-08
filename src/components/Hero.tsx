@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-24">
       {/* Top border line */}
       <div className="absolute top-20 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pearl/10 to-transparent" />
 
@@ -50,9 +50,9 @@ export default function Hero() {
           <Image
             src="/images/logo.png"
             alt="NxGeN"
-            width={800}
-            height={224}
-            className="h-48 md:h-72 lg:h-96 w-auto mx-auto"
+            width={1200}
+            height={336}
+            className="h-64 md:h-96 lg:h-[32rem] w-auto mx-auto"
             priority
           />
         </motion.div>

@@ -44,9 +44,9 @@ export default function Navigation() {
               <Image
                 src="/images/logo.png"
                 alt="NxGeN"
-                width={100}
-                height={28}
-                className="h-7 w-auto"
+                width={200}
+                height={56}
+                className="h-14 w-auto"
               />
             </a>
 
