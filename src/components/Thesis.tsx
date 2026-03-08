@@ -61,34 +61,14 @@ export default function Thesis() {
             </p>
           </motion.div>
 
-          {/* Body copy - Clean, readable */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-12 md:gap-16 mb-24"
-          >
-            <p className="text-[1.05rem] text-pearl/50 leading-[1.8] font-light">
-              Yet no community exists for those creating, inheriting, and deploying that capital — one built on trust, not transactions. On friendship, not networking. On experiences that make you want to continually show up.
-            </p>
-
-            <p className="text-[1.05rem] text-pearl/50 leading-[1.8] font-light">
-              There needs to be an ecosystem where the next generation of family offices, entrepreneurial leaders, and cultural icons learn, create, invest, and give back together.
-            </p>
-          </motion.div>
-
-          {/* Conclusion - Emotional close */}
+          {/* Conclusion */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="pt-16 border-t border-pearl/5"
+            className="pt-8"
           >
-            <p className="text-[1.25rem] md:text-[1.5rem] text-pearl/80 leading-[1.6] max-w-3xl font-light mb-12">
-              <span className="text-pearl">NxGeN</span> is the platform bringing this global community together, in real life, to build relationships and have the conversations that matter most.
-            </p>
             <p className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] text-pearl font-serif font-light tracking-[-0.02em]">
               It starts in <span className="text-blush">Miami.</span>
             </p>
