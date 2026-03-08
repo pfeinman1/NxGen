@@ -40,18 +40,12 @@ export default function WhoWeAre() {
               We keep our circles tight so that trust, generosity, and real connection can flourish — across cities, time zones, and industries.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start gap-4">
+            <div>
               <a
                 href="#apply"
-                className="px-8 py-4 text-[11px] tracking-[0.2em] text-black bg-pearl hover:bg-blush transition-all duration-300 font-medium rounded-full"
+                className="inline-block px-10 py-4 text-[11px] tracking-[0.2em] text-black bg-pearl hover:bg-blush transition-all duration-300 font-medium rounded-full text-center"
               >
                 APPLY FOR MEMBERSHIP
-              </a>
-              <a
-                href="#thesis"
-                className="px-8 py-4 text-[11px] tracking-[0.2em] text-pearl/70 border border-pearl/20 hover:border-pearl/40 hover:text-pearl transition-all duration-300 font-light rounded-full"
-              >
-                LEARN MORE
               </a>
             </div>
           </div>
