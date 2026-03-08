@@ -52,14 +52,6 @@ export default function Pillars() {
             <p className="text-lg text-text-soft leading-relaxed">
               Every person you&apos;ll meet here is your neighbor - not just in proximity, but in purpose. NxGeN exists for those who see the world as one shared home, and who believe that real progress happens when we turn toward each other, not away.
             </p>
-            <div className="mt-8">
-              <a
-                href="#apply"
-                className="inline-block px-8 py-4 text-xs tracking-[0.2em] text-black bg-pearl hover:bg-blush rounded-full transition-all duration-300 font-medium"
-              >
-                REQUEST AN INVITATION
-              </a>
-            </div>
           </div>
           <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
             <Image
