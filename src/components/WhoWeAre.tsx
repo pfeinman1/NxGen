@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function WhoWeAre() {
   const containerRef = useRef(null);
@@ -10,52 +11,60 @@ export default function WhoWeAre() {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [80, -80]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={containerRef} className="relative py-40 bg-black-light overflow-hidden">
-      {/* Large background text */}
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-      >
-        <span className="text-[20vw] text-pearl/[0.02] whitespace-nowrap font-bold">
-          NXGEN
-        </span>
-      </motion.div>
-
+    <section ref={containerRef} className="relative py-16 lg:py-24 bg-black overflow-hidden">
       <motion.div
         style={{ opacity }}
-        className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center"
+        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12"
       >
-        <p className="text-blush text-xs tracking-[0.3em] uppercase mb-8">
-          Who We Are
-        </p>
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Left side - Content */}
+          <div>
+            <p className="text-blush/80 text-[11px] tracking-[0.4em] uppercase mb-8 font-light">
+              Global Community
+            </p>
 
-        <h2 className="text-3xl md:text-5xl lg:text-6xl text-pearl leading-tight mb-12 font-bold">
-          Not a network you attend.
-          <br />
-          <span className="text-pearl-muted">A global community you belong to.</span>
-        </h2>
+            <h2 className="text-[2.25rem] md:text-[3rem] lg:text-[3.5rem] text-pearl leading-[1.1] mb-10 font-serif font-light tracking-[-0.02em]">
+              A community of builders,
+              <br />
+              <span className="text-pearl/40">givers & investors.</span>
+            </h2>
 
-        <p className="text-lg text-text-soft leading-relaxed max-w-2xl mx-auto mb-16">
-          NxGeN brings together people who are building the future of their industries, investing in the people and ideas that matter most, and giving generously to lift others. We don&apos;t just connect people - we create the experiences for trust to grow, value to compound, and friendship to form between people who are trying to leave the world a better place than they found it.
-        </p>
+            <p className="text-[1.05rem] text-pearl/50 leading-[1.8] mb-6 font-light">
+              NxGeN isn&apos;t a network you attend. It&apos;s a community you belong to. We bring together people who are building the future of their industries, giving generously to lift others up, and investing in the people and ideas that matter most.
+            </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <a
-            href="#apply"
-            className="px-10 py-4 text-xs tracking-[0.2em] text-black bg-blush rounded-full hover:bg-pearl transition-all duration-300"
+            <p className="text-[1.05rem] text-pearl/50 leading-[1.8] mb-12 font-light">
+              We keep our circles tight so that trust, generosity, and real connection can flourish — across cities, time zones, and industries.
+            </p>
+
+            <div>
+              <a
+                href="#apply"
+                className="inline-block px-10 py-4 text-[11px] tracking-[0.2em] text-black bg-pearl hover:bg-blush transition-all duration-300 font-medium rounded-full text-center"
+              >
+                APPLY FOR MEMBERSHIP
+              </a>
+            </div>
+          </div>
+
+          {/* Right side - Image */}
+          <motion.div 
+            className="relative aspect-[3/4] lg:aspect-[4/5] rounded-lg overflow-hidden"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.5 }}
           >
-            APPLY TO JOIN
-          </a>
-          <a
-            href="#thesis"
-            className="px-10 py-4 text-xs tracking-[0.2em] text-pearl border border-pearl/20 rounded-full hover:border-pearl/40 transition-all duration-300"
-          >
-            OUR STORY
-          </a>
+            <Image
+              src="/images/community-event.jpg"
+              alt="NxGeN community members at an exclusive event"
+              fill
+              className="object-cover"
+            />
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+          </motion.div>
         </div>
       </motion.div>
     </section>

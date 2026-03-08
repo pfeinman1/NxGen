@@ -1,100 +1,91 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Globe from "./Globe";
+import Image from "next/image";
+
+// Mixed order to avoid repetitive patterns - removed speedboat as it's similar to header
+const heroImages = [
+  { src: "/images/event-lounge.jpg", alt: "Members in lounge" },
+  { src: "/images/event-poker.jpg", alt: "Poker night event" },
+  { src: "/images/event-rooftop-group.jpg", alt: "Rooftop gathering" },
+  { src: "/images/event-panel.jpg", alt: "Panel discussion" },
+  { src: "/images/event-empire.jpg", alt: "NYC rooftop event" },
+  { src: "/images/event-panel-bw.jpg", alt: "Panel speakers" },
+  { src: "/images/event-yacht-marina.jpg", alt: "Yacht marina sunset" },
+];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden bg-black pt-24">
-      {/* Top border line */}
-      <div className="absolute top-20 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pearl/10 to-transparent" />
-
-      {/* Main content */}
-      <div className="flex-1 flex flex-col lg:flex-row">
-        {/* Left side - Globe */}
-        <div className="flex-1 relative hidden lg:block">
-          <Globe />
+    <section className="relative flex flex-col overflow-hidden pt-24">
+      {/* Banner section */}
+      <div className="relative min-h-[50vh] md:min-h-[70vh] flex flex-col bg-black">
+        {/* Background Image - hidden on mobile */}
+        <div className="absolute inset-0 z-0 hidden md:block">
+          <Image
+            src="/images/gallery/marina-sunset.jpg"
+            alt="NxGeN Event at Steel Point Marina"
+            fill
+            className="object-cover blur-[1px]"
+            priority
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/55" />
         </div>
 
-        {/* Right side - Text */}
-        <div className="flex-1 flex flex-col justify-center px-6 lg:px-12 xl:px-20 py-16 lg:py-0">
+        {/* Main content */}
+        <div className="relative z-10 flex-1 flex items-center justify-center px-6 lg:px-12 xl:px-20 py-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-center"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-[family-name:var(--font-playfair)] leading-[0.95] tracking-tight">
-              <span className="text-pearl">The future</span>
-              <br />
-              <span className="text-pearl">is </span>
-              <span className="text-blush italic">written</span>
-              <br />
-              <span className="text-pearl">together.</span>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-light leading-[1.2] tracking-[-0.02em]">
+              <span className="text-pearl">The future is </span>
+              <span className="text-blush italic font-normal">written</span>
+              <span className="text-pearl"> together.</span>
             </h1>
           </motion.div>
         </div>
       </div>
 
-      {/* Bottom section */}
-      <div className="border-t border-pearl/10">
-        <div className="flex flex-col md:flex-row items-stretch">
-          {/* Left - Description */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="flex-1 px-6 lg:px-12 xl:px-20 py-8 border-b md:border-b-0 md:border-r border-pearl/10"
-          >
-            <p className="text-base md:text-lg text-pearl-muted max-w-md leading-relaxed">
-              As AI reshapes what it means to build, NxGen gives you the community, resources, and education to stay ahead — and lead with purpose.
-            </p>
-          </motion.div>
-
-          {/* Center - Scroll indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="flex-1 flex flex-col items-center justify-center py-8 border-b md:border-b-0 md:border-r border-pearl/10"
-          >
-            <span className="text-xs tracking-[0.3em] text-pearl-muted mb-4">SCROLL</span>
+      {/* Scrolling Images Row */}
+      <div className="relative bg-black overflow-hidden py-6">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+        
+        <motion.div
+          className="flex gap-4"
+          animate={{
+            x: [0, -1680],
+          }}
+          transition={{
+            x: {
+              duration: 60,
+              repeat: Infinity,
+              ease: "linear",
+            },
+          }}
+        >
+          {[...heroImages, ...heroImages, ...heroImages].map((image, index) => (
             <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-px h-12 bg-gradient-to-b from-pearl/50 to-transparent"
-            />
-          </motion.div>
-
-          {/* Right - CTA */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="flex-1 flex items-center justify-end px-6 lg:px-12 xl:px-20 py-8"
-          >
-            <a
-              href="#apply"
-              className="group flex items-center gap-4 text-xs tracking-[0.2em] text-pearl hover:text-blush transition-colors"
+              key={`${image.src}-${index}`}
+              className="flex-shrink-0 w-[200px] md:w-[280px] relative group"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.3 }}
             >
-              BEGIN YOUR APPLICATION
-              <span className="w-10 h-10 rounded-full border border-pearl/30 flex items-center justify-center group-hover:border-blush transition-colors">
-                <svg
-                  className="w-4 h-4 -rotate-45"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </span>
-            </a>
-          </motion.div>
-        </div>
+              <div className="relative aspect-[4/3] rounded overflow-hidden">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

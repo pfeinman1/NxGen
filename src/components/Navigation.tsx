@@ -19,10 +19,8 @@ export default function Navigation() {
 
   const navLinks = [
     { name: "VISION", href: "#thesis" },
-    { name: "MIAMI", href: "#miami" },
-    { name: "WWW", href: "#www" },
     { name: "COMMUNITY", href: "#community" },
-    { name: "APPLY", href: "#apply" },
+    { name: "APPLY", href: "#apply", highlight: true },
   ];
 
   return (
@@ -38,30 +36,34 @@ export default function Navigation() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-28">
             {/* Logo */}
             <a href="#" className="flex items-center">
               <Image
                 src="/images/logo.png"
                 alt="NxGeN"
-                width={200}
-                height={56}
-                className="h-14 w-auto"
+                width={320}
+                height={90}
+                className="h-24 w-auto"
               />
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-10">
-              {navLinks.map((link) => (
+            <nav className="hidden md:flex items-center">
+              {navLinks.map((link, index) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-xs font-normal text-pearl-muted hover:text-pearl tracking-[0.2em] transition-colors"
+                  className={`text-[12px] tracking-[0.15em] transition-colors duration-300 font-light px-6 ${
+                    link.highlight 
+                      ? "text-blush hover:text-pearl" 
+                      : "text-pearl/60 hover:text-pearl"
+                  }`}
                 >
                   {link.name}
                 </a>
               ))}
-            </div>
+            </nav>
 
             {/* Mobile Menu Button */}
             <button

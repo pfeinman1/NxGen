@@ -35,7 +35,7 @@ export default function Pillars() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="community" className="relative py-32 bg-black-light">
+    <section id="community" className="relative py-16 lg:py-24 bg-black-light">
       {/* Top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pearl/10 to-transparent" />
 
@@ -49,17 +49,15 @@ export default function Pillars() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-pearl leading-tight mb-6 font-bold">
               Meet your neighbors.
             </h2>
-            <p className="text-lg text-text-soft leading-relaxed">
+            <p className="text-lg text-text-soft leading-relaxed mb-8">
               Every person you&apos;ll meet here is your neighbor - not just in proximity, but in purpose. NxGeN exists for those who see the world as one shared home, and who believe that real progress happens when we turn toward each other, not away.
             </p>
-            <div className="mt-8">
-              <a
-                href="#apply"
-                className="inline-block px-8 py-3 text-xs tracking-[0.2em] text-pearl border border-pearl/20 rounded-full hover:border-blush hover:text-blush transition-all duration-300"
-              >
-                REQUEST AN INVITATION
-              </a>
-            </div>
+            <a
+              href="#apply"
+              className="inline-block px-10 py-4 text-xs tracking-[0.2em] text-black bg-pearl hover:bg-blush rounded-full transition-all duration-300 font-medium"
+            >
+              REQUEST AN INVITATION
+            </a>
           </div>
           <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
             <Image
@@ -70,14 +68,6 @@ export default function Pillars() {
             />
           </div>
         </div>
-
-        {/* Pillars label */}
-        <p className="text-blush text-xs tracking-[0.3em] uppercase mb-8">
-          Our Three Pillars
-        </p>
-        <h3 className="text-2xl md:text-3xl text-pearl mb-12 font-bold">
-          Three ways to live it. One platform to experience it together.
-        </h3>
 
         {/* Pillars grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-pearl/5 rounded-xl overflow-hidden">

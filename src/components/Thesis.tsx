@@ -10,52 +10,55 @@ export default function Thesis() {
     offset: ["start end", "end start"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [80, 0, 0, -80]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.2], [60, 0]);
 
   return (
     <section
       id="thesis"
       ref={containerRef}
-      className="relative min-h-screen flex items-center py-32 bg-black"
+      className="relative py-20 md:py-28 bg-black overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto px-6 lg:px-12">
-        <motion.div style={{ opacity, y }} className="space-y-12">
+      {/* Subtle decorative line */}
+      <div className="absolute left-1/2 top-0 w-px h-24 bg-gradient-to-b from-transparent via-pearl/20 to-transparent" />
+      
+      <div className="max-w-6xl mx-auto px-6 lg:px-12">
+        <motion.div style={{ opacity, y }}>
           {/* Label */}
-          <p className="text-blush text-xs tracking-[0.3em] uppercase">
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-blush/80 text-[11px] tracking-[0.4em] uppercase mb-16 font-light"
+          >
             The Thesis
-          </p>
+          </motion.p>
 
-          {/* Main headline */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-pearl leading-[1.15] max-w-4xl font-bold">
-            The weight of responsibility is shifting
-          </h2>
+          {/* Main headline - Large editorial serif */}
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-[2.75rem] md:text-[4rem] lg:text-[5rem] text-pearl leading-[1.05] max-w-5xl font-serif font-light tracking-[-0.02em] mb-20"
+          >
+            The weight of responsibility
+            <br />
+            <span className="text-pearl/40">is shifting.</span>
+          </motion.h2>
 
-          {/* Main stat paragraph */}
-          <p className="text-xl md:text-2xl text-pearl-muted leading-relaxed max-w-3xl">
-            <span className="text-blush">$84 trillion</span> is transferring to Millennials and Gen Z — and at the same moment, AI is creating the greatest wealth-building opportunity in modern history.
-          </p>
-
-          {/* Body copy */}
-          <div className="space-y-6 max-w-3xl">
-            <p className="text-lg text-text-soft leading-relaxed">
-              Yet no community exists for those creating, inheriting, and deploying that capital — one built on trust, not transactions. On friendship, not networking. On experiences that make you want to continually show up.
+          {/* Stat callout */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-[1.35rem] md:text-[1.75rem] text-pearl/70 leading-[1.6] max-w-3xl font-light">
+              <span className="text-blush font-normal">$84 trillion</span> is transferring to Millennials and Gen Z — and at the same moment, AI is creating the greatest wealth-building opportunity in modern history. <span className="font-bold text-pearl">It starts in Miami and continues globally.</span>
             </p>
-
-            <p className="text-lg text-text-soft leading-relaxed">
-              There needs to be an ecosystem where the next generation of family offices, entrepreneurial leaders, and cultural icons learn, create, invest, and give back together - surrounded by people who understand the weight and the opportunity of what&apos;s ahead.
-            </p>
-          </div>
-
-          {/* Conclusion */}
-          <div className="pt-8 border-t border-pearl/10">
-            <p className="text-xl text-pearl leading-relaxed max-w-3xl">
-              <span className="font-medium">NxGeN</span> is the platform bringing this global community together, in real life, to have fun, safe spaces to build the relationships and have the conversations that matter most.
-            </p>
-            <p className="text-3xl md:text-4xl text-blush mt-8 font-bold">
-              It starts in Miami.
-            </p>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

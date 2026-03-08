@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* NxGen Color Palette */
+  /* NxGeN Color Palette */
   --black: #101014;
   --black-light: #1C1C22;
   --black-mid: #28282F;
@@ -31,9 +31,8 @@
   --color-text-muted: var(--text-muted);
   --color-text-soft: var(--text-soft);
   --color-divider: var(--divider);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
 }
 
 * {
@@ -78,4 +77,19 @@ body {
 /* Smooth transitions for interactive elements */
 a, button {
   transition: all 0.3s ease;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 180s linear infinite;
+  transition: animation-duration 0.5s ease;
 }

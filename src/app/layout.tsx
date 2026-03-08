@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "NxGeN | Where Capital and Culture Collide",
   description: "The invitation-only community for next-generation leaders shaping the future of capital, entrepreneurship, and impact.",
-  keywords: ["NxGen", "community", "capital", "entrepreneurship", "impact", "next generation", "investors", "builders"],
+  keywords: ["NxGeN", "community", "capital", "entrepreneurship", "impact", "next generation", "investors", "builders"],
   openGraph: {
     title: "NxGeN | Where Capital and Culture Collide",
     description: "The invitation-only community for next-generation leaders shaping the future of capital, entrepreneurship, and impact.",
@@ -43,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
+        className={`${inter.variable} ${cormorant.variable} antialiased`}
       >
         {children}
       </body>
