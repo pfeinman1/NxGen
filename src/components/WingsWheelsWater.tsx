@@ -121,93 +121,89 @@ export default function WingsWheelsWater() {
         </div>
       </div>
 
-      {/* Interactive Image Gallery */}
+      {/* Clean Image Gallery */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-24">
+        {/* Category Filter */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-10 flex flex-wrap gap-3"
         >
-          <p className="text-blush text-xs tracking-[0.3em] uppercase mb-4">Gallery</p>
-          <h3 className="text-2xl md:text-3xl text-pearl font-bold mb-8">Moments That Define Us</h3>
-          
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-3">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-5 py-2 text-xs tracking-[0.15em] uppercase transition-all duration-300 ${
-                  activeCategory === cat.id
-                    ? "bg-blush text-black"
-                    : "bg-transparent text-pearl/60 border border-pearl/20 hover:border-pearl/40 hover:text-pearl"
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveCategory(cat.id)}
+              className={`px-6 py-2.5 text-[11px] tracking-[0.2em] uppercase transition-all duration-300 font-light ${
+                activeCategory === cat.id
+                  ? "bg-blush text-black"
+                  : "bg-transparent text-pearl/50 border border-pearl/10 hover:border-pearl/30 hover:text-pearl"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
         </motion.div>
 
-        {/* Masonry Grid */}
+        {/* Clean Grid - No overlap */}
         <motion.div 
           layout
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         >
           <AnimatePresence mode="popLayout">
-            {filteredImages.map((image, index) => {
-              // Create varied grid layouts based on index
-              const isLarge = index === 0 || index === 5;
-              const isTall = index === 2 || index === 7;
-              
-              return (
-                <motion.div
-                  key={image.src}
-                  layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className={`relative cursor-pointer overflow-hidden group ${
-                    isLarge ? "md:col-span-2 md:row-span-2" : ""
-                  } ${isTall ? "md:row-span-2" : ""}`}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  onClick={() => setSelectedImage(galleryImages.indexOf(image))}
+            {filteredImages.map((image, index) => (
+              <motion.div
+                key={image.src}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="relative cursor-pointer overflow-hidden group"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                onClick={() => setSelectedImage(galleryImages.indexOf(image))}
+              >
+                <motion.div 
+                  className="relative aspect-[4/5]"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.4 }}
                 >
-                  <div className={`relative ${isLarge ? "aspect-square" : isTall ? "aspect-[3/4]" : "aspect-[4/3]"}`}>
+                  <motion.div
+                    className="absolute inset-0"
+                    animate={{
+                      x: hoveredIndex === index ? (index % 2 === 0 ? 4 : -4) : 0,
+                      y: hoveredIndex === index ? -4 : 0,
+                    }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  >
                     <Image
                       src={image.src}
                       alt={image.alt}
                       fill
-                      className="object-cover object-top transition-all duration-700 group-hover:scale-110"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    {/* Permanent gradient at bottom */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
-                    {/* Content */}
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
-                      <motion.div
-                        initial={{ y: 10, opacity: 0 }}
-                        animate={{ y: hoveredIndex === index ? 0 : 10, opacity: hoveredIndex === index ? 1 : 0.8 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <p className="text-blush text-xs tracking-[0.2em] uppercase mb-1">{image.title}</p>
-                        <p className="text-pearl text-sm md:text-base font-medium">{image.alt}</p>
-                      </motion.div>
-                    </div>
-                    
-                    {/* Border on hover */}
-                    <div className="absolute inset-0 border-2 border-blush/0 group-hover:border-blush/50 transition-colors duration-300 pointer-events-none" />
-                  </div>
+                  </motion.div>
+                  
+                  {/* Subtle gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Category label on hover */}
+                  <motion.div 
+                    className="absolute bottom-4 left-4 right-4"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ 
+                      opacity: hoveredIndex === index ? 1 : 0,
+                      y: hoveredIndex === index ? 0 : 10
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="text-blush/80 text-[10px] tracking-[0.2em] uppercase font-light">{image.title}</p>
+                  </motion.div>
                 </motion.div>
-              );
-            })}
+              </motion.div>
+            ))}
           </AnimatePresence>
         </motion.div>
       </div>
