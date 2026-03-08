@@ -58,17 +58,22 @@ export default function WingsWheelsWater() {
 
       {/* Content section */}
       <div className="max-w-6xl mx-auto px-6 lg:px-12 py-24">
-        {/* Intro - Two column layout with image placeholder on left, copy on right */}
+        {/* Intro - Two column layout with image on left, copy on right */}
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 mb-20 items-center">
-          {/* Left side - Image placeholder */}
-          <div className="aspect-[4/3] bg-black-light rounded-lg flex items-center justify-center border border-pearl/10">
-            <span className="text-pearl/30 text-sm tracking-wider">Image Coming Soon</span>
+          {/* Left side - Image */}
+          <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+            <Image
+              src="/images/helicopter-event.jpg"
+              alt="Helicopter arriving at Wings Wheels Water event with private jet and vintage vehicles"
+              fill
+              className="object-cover"
+            />
           </div>
           
           {/* Right side - Copy */}
           <div>
             <p className="text-blush text-xs tracking-[0.3em] uppercase mb-6">
-              The Experience
+              Flagship Event
             </p>
             <h3 className="text-3xl md:text-4xl lg:text-5xl text-pearl leading-tight mb-8 font-bold">
               Three worlds. One extraordinary night.
