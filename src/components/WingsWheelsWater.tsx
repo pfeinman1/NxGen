@@ -150,7 +150,7 @@ export default function WingsWheelsWater() {
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className={`object-cover transition-transform duration-700 ${
+                  className={`object-cover object-top transition-transform duration-700 ${
                     hoveredIndex === index ? "scale-110" : "scale-100"
                   }`}
                 />
