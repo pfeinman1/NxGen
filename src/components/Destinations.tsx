@@ -30,6 +30,7 @@ export default function Destinations() {
     <section
       ref={containerRef}
       className="relative py-32 bg-black overflow-hidden"
+      style={{ position: "relative" }}
     >
       {/* Header */}
       <div className="max-w-6xl mx-auto px-6 lg:px-12 mb-16">
