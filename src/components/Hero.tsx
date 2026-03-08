@@ -18,9 +18,9 @@ export default function Hero() {
   return (
     <section className="relative flex flex-col overflow-hidden pt-24">
       {/* Banner section */}
-      <div className="relative min-h-[70vh] flex flex-col">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+      <div className="relative min-h-[50vh] md:min-h-[70vh] flex flex-col bg-black">
+        {/* Background Image - hidden on mobile */}
+        <div className="absolute inset-0 z-0 hidden md:block">
           <Image
             src="/images/gallery/marina-sunset.jpg"
             alt="NxGen Event at Steel Point Marina"
@@ -40,7 +40,7 @@ export default function Hero() {
             transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-light leading-[1.1] tracking-[-0.02em] whitespace-nowrap">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-light leading-[1.2] tracking-[-0.02em]">
               <span className="text-pearl">The future is </span>
               <span className="text-blush italic font-normal">written</span>
               <span className="text-pearl"> together.</span>
