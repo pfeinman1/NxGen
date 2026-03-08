@@ -48,7 +48,7 @@ export default function WingsWheelsWater() {
       {/* Content section */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-16 lg:pt-12 lg:pb-20">
         {/* Main two-column layout */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-24">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-12">
           {/* Left side - Image reframed to show helicopter */}
           <div className="relative aspect-[4/3] lg:aspect-[3/4] rounded-lg overflow-hidden">
             <Image
@@ -92,21 +92,12 @@ export default function WingsWheelsWater() {
               ))}
             </div>
 
-            {/* CTA */}
-            <div className="mt-12">
-              <a
-                href="#apply"
-                className="inline-block px-10 py-4 text-[11px] tracking-[0.2em] text-black bg-blush hover:bg-pearl transition-all duration-300 font-medium"
-              >
-                SECURE YOUR PLACE
-              </a>
-            </div>
           </div>
         </div>
       </div>
 
       {/* Scrolling Image Marquee - Slows on hover */}
-      <div className="relative overflow-hidden pb-24 group/marquee">
+      <div className="relative overflow-hidden pb-12 group/marquee">
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
