@@ -50,9 +50,9 @@ export default function Hero() {
           <Image
             src="/images/logo.png"
             alt="NxGeN"
-            width={600}
-            height={168}
-            className="h-24 md:h-36 lg:h-48 w-auto mx-auto"
+            width={800}
+            height={224}
+            className="h-48 md:h-72 lg:h-96 w-auto mx-auto"
             priority
           />
         </motion.div>

@@ -59,15 +59,15 @@ export default function FlagshipEvent() {
             Flagship Event
           </p>
           {/* Logo + Miami */}
-          <div className="flex items-baseline justify-center gap-6 mb-6">
+          <div className="flex items-center justify-center gap-4 md:gap-6 mb-6">
             <Image
               src="/images/logo.png"
               alt="NxGeN"
-              width={400}
-              height={112}
-              className="h-16 md:h-24 lg:h-32 w-auto"
+              width={500}
+              height={140}
+              className="h-12 md:h-20 lg:h-28 w-auto"
             />
-            <span className="text-5xl md:text-7xl lg:text-8xl text-pearl font-bold tracking-tight">
+            <span className="text-5xl md:text-7xl lg:text-[7rem] text-pearl font-bold tracking-tight leading-none">
               Miami
             </span>
           </div>
