@@ -65,36 +65,11 @@ export default function Destinations() {
         </p>
       </div>
 
-      {/* Destination image cards - Grid on mobile, scrolling on desktop */}
-      
-      {/* Mobile: 2x2 grid */}
-      <div className="md:hidden px-4">
-        <div className="grid grid-cols-2 gap-3">
-          {destinationCards.slice(0, 4).map((dest, index) => (
-            <div key={index} className="group cursor-pointer">
-              <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
-                <Image
-                  src={dest.src}
-                  alt={dest.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3">
-                  <h3 className="text-sm text-pearl font-serif font-light">{dest.name}</h3>
-                  <p className="text-pearl/50 text-xs font-light">{dest.subtitle}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Desktop: Scrolling marquee */}
-      <div className="relative overflow-hidden hidden md:block">
+      {/* Destination image cards - Scrolling marquee on all screen sizes */}
+      <div className="relative overflow-hidden">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
 
         <motion.div
           className="flex gap-6"
@@ -112,9 +87,9 @@ export default function Destinations() {
           {[...destinationCards, ...destinationCards, ...destinationCards].map((dest, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-[300px] group cursor-pointer"
+              className="flex-shrink-0 w-[200px] md:w-[300px] group cursor-pointer"
             >
-              <div className="relative h-[380px] rounded-2xl overflow-hidden mb-4">
+              <div className="relative h-[260px] md:h-[380px] rounded-xl md:rounded-2xl overflow-hidden mb-4">
                 <Image
                   src={dest.src}
                   alt={dest.name}
@@ -122,9 +97,9 @@ export default function Destinations() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5">
-                  <h3 className="text-[1.25rem] text-pearl font-serif font-light">{dest.name}</h3>
-                  <p className="text-pearl/50 text-[0.85rem] font-light">{dest.subtitle}</p>
+                <div className="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5">
+                  <h3 className="text-sm md:text-[1.25rem] text-pearl font-serif font-light">{dest.name}</h3>
+                  <p className="text-pearl/50 text-xs md:text-[0.85rem] font-light">{dest.subtitle}</p>
                 </div>
               </div>
             </div>
