@@ -71,11 +71,6 @@ export default function Pillars() {
           </div>
         </div>
 
-        {/* Pillars label */}
-        <p className="text-blush text-xs tracking-[0.3em] uppercase mb-12">
-          Our Three Pillars
-        </p>
-
         {/* Pillars grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-pearl/5 rounded-xl overflow-hidden">
           {pillars.map((pillar, index) => (
