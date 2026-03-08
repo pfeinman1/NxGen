@@ -11,6 +11,8 @@ export default function ApplicationForm() {
     firstName: "",
     lastName: "",
     email: "",
+    linkedin: "",
+    referredBy: "",
     building: "",
     pillar: "",
     showUp: "",
@@ -120,6 +122,39 @@ export default function ApplicationForm() {
               value={formData.email}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
+              }
+              className="w-full bg-black-light border border-pearl/10 rounded-lg px-4 py-3 text-pearl placeholder-text-muted focus:outline-none focus:border-blush/50 transition-colors"
+            />
+          </div>
+
+          {/* LinkedIn */}
+          <div>
+            <label className="block text-sm text-text-muted mb-2">
+              LinkedIn Profile
+            </label>
+            <input
+              type="url"
+              required
+              placeholder="https://linkedin.com/in/yourprofile"
+              value={formData.linkedin}
+              onChange={(e) =>
+                setFormData({ ...formData, linkedin: e.target.value })
+              }
+              className="w-full bg-black-light border border-pearl/10 rounded-lg px-4 py-3 text-pearl placeholder-text-muted focus:outline-none focus:border-blush/50 transition-colors"
+            />
+          </div>
+
+          {/* Referred By */}
+          <div>
+            <label className="block text-sm text-text-muted mb-2">
+              Referred by?
+            </label>
+            <input
+              type="text"
+              placeholder="Name of person who referred you (optional)"
+              value={formData.referredBy}
+              onChange={(e) =>
+                setFormData({ ...formData, referredBy: e.target.value })
               }
               className="w-full bg-black-light border border-pearl/10 rounded-lg px-4 py-3 text-pearl placeholder-text-muted focus:outline-none focus:border-blush/50 transition-colors"
             />
