@@ -8,10 +8,12 @@ const images = [
   { src: "/images/yacht-event.jpg", alt: "Yacht event" },
   { src: "/images/www-hero.png", alt: "Wings Wheels Water" },
   { src: "/images/panel-discussion.jpg", alt: "Panel discussion" },
+  { src: "/images/group-event.jpg", alt: "Community gathering" },
   { src: "/images/event-photo.jpg", alt: "Event experience" },
   { src: "/images/yacht-event.jpg", alt: "Yacht event" },
   { src: "/images/www-hero.png", alt: "Wings Wheels Water" },
   { src: "/images/panel-discussion.jpg", alt: "Panel discussion" },
+  { src: "/images/group-event.jpg", alt: "Community gathering" },
 ];
 
 export default function ImageMarquee() {
