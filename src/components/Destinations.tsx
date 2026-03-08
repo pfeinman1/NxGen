@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -47,28 +47,8 @@ const destinationCards = [
   },
 ];
 
-const destinations = [
-  "Miami",
-  "South Africa",
-  "France",
-  "F1",
-  "Hong Kong",
-  "Treasure Cay, Bahamas",
-  "Milken",
-  "Portugal",
-  "World Economic Forum",
-  "Brazil",
-];
-
 export default function Destinations() {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  // Smooth horizontal scroll based on vertical scroll
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
 
   return (
     <section
@@ -83,30 +63,6 @@ export default function Destinations() {
         <p className="text-[1.05rem] text-pearl/50 max-w-2xl leading-[1.8] font-light">
           NxGeN doesn&apos;t end when you leave Miami. Members get year-round access to curated introductions, private markets and secondaries deal flow, AI and entrepreneurship education, global events, and a private network of next-gen leaders who actually have each other&apos;s backs.
         </p>
-      </div>
-
-      {/* Scrolling destination tags */}
-      <div className="relative mb-12">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
-
-        <motion.div
-          style={{ x }}
-          className="flex gap-4 whitespace-nowrap py-8"
-        >
-          {[...destinations, ...destinations].map((dest, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.02 }}
-              className="flex-shrink-0 px-8 py-4 bg-black-light border border-pearl/10 rounded-full cursor-pointer hover:border-blush/30 hover:bg-black-mid transition-all duration-300"
-            >
-              <span className="text-[0.95rem] md:text-[1.05rem] text-pearl/50 hover:text-pearl/80 transition-colors font-light">
-                {dest}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Destination image cards */}
