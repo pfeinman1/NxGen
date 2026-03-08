@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Globe from "./Globe";
 
 export default function Hero() {
   return (
@@ -11,7 +11,12 @@ export default function Hero() {
 
       {/* Main content */}
       <div className="flex-1 flex flex-col lg:flex-row">
-        {/* Left side - Text */}
+        {/* Left side - Globe */}
+        <div className="flex-1 relative hidden lg:block">
+          <Globe />
+        </div>
+
+        {/* Right side - Text */}
         <div className="flex-1 flex flex-col justify-center px-6 lg:px-12 xl:px-20 py-16 lg:py-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -26,31 +31,6 @@ export default function Hero() {
               <br />
               <span className="text-pearl">together.</span>
             </h1>
-          </motion.div>
-        </div>
-
-        {/* Right side - Grid */}
-        <div className="flex-1 relative hidden lg:block">
-          {/* Grid pattern */}
-          <div className="absolute inset-0 grid grid-cols-4 grid-rows-4">
-            {Array.from({ length: 16 }).map((_, i) => (
-              <div
-                key={i}
-                className="border-l border-t border-pearl/10 last:border-r"
-              />
-            ))}
-          </div>
-
-          {/* Circle indicator in grid */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          >
-            <div className="w-12 h-12 rounded-full border border-pearl/30 flex items-center justify-center">
-              <div className="w-2 h-2 bg-pearl rounded-full" />
-            </div>
           </motion.div>
         </div>
       </div>
