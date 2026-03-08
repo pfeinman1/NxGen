@@ -63,9 +63,9 @@ export default function FlagshipEvent() {
             <Image
               src="/images/logo.png"
               alt="NxGeN"
-              width={600}
-              height={168}
-              className="h-20 md:h-28 lg:h-36 w-auto"
+              width={800}
+              height={224}
+              className="h-[200px] md:h-[280px] lg:h-[360px] w-auto"
             />
             <span className="text-7xl md:text-8xl lg:text-9xl text-pearl font-bold tracking-tight leading-none">
               Miami
