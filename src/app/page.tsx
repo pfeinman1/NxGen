@@ -8,7 +8,7 @@ import WingsWheelsWater from "@/components/WingsWheelsWater";
 import Pillars from "@/components/Pillars";
 import WhoWeAre from "@/components/WhoWeAre";
 import Destinations from "@/components/Destinations";
-import Testimonials from "@/components/Testimonials";
+
 import WhatYouGet from "@/components/WhatYouGet";
 import Process from "@/components/Process";
 import ApplicationForm from "@/components/ApplicationForm";
@@ -27,7 +27,6 @@ export default function Home() {
       <Pillars />
       <WhoWeAre />
       <Destinations />
-      <Testimonials />
       <WhatYouGet />
       <Process />
       <ApplicationForm />
