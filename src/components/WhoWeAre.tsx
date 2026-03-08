@@ -3,8 +3,41 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
-// Animated Globe Component
-function AnimatedGlobe() {
+// City locations on world map (x, y coordinates in percentage)
+const cities = [
+  { name: "New York", x: 28, y: 38, size: 4 },
+  { name: "Los Angeles", x: 15, y: 42, size: 3 },
+  { name: "Miami", x: 26, y: 48, size: 4 },
+  { name: "London", x: 48, y: 32, size: 4 },
+  { name: "Paris", x: 50, y: 35, size: 3 },
+  { name: "Dubai", x: 62, y: 46, size: 3 },
+  { name: "Singapore", x: 76, y: 58, size: 3 },
+  { name: "Hong Kong", x: 80, y: 46, size: 3 },
+  { name: "Tokyo", x: 88, y: 40, size: 3 },
+  { name: "Sydney", x: 88, y: 75, size: 3 },
+  { name: "Sao Paulo", x: 34, y: 68, size: 3 },
+  { name: "Toronto", x: 25, y: 34, size: 3 },
+];
+
+// Connections between cities
+const connections = [
+  { from: 0, to: 3 }, // NY - London
+  { from: 0, to: 2 }, // NY - Miami
+  { from: 2, to: 10 }, // Miami - Sao Paulo
+  { from: 3, to: 4 }, // London - Paris
+  { from: 3, to: 5 }, // London - Dubai
+  { from: 4, to: 5 }, // Paris - Dubai
+  { from: 5, to: 6 }, // Dubai - Singapore
+  { from: 6, to: 7 }, // Singapore - Hong Kong
+  { from: 7, to: 8 }, // Hong Kong - Tokyo
+  { from: 6, to: 9 }, // Singapore - Sydney
+  { from: 1, to: 8 }, // LA - Tokyo
+  { from: 0, to: 11 }, // NY - Toronto
+  { from: 1, to: 0 }, // LA - NY
+];
+
+// World Map Component with connected cities
+function WorldMapNetwork() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -13,124 +46,148 @@ function AnimatedGlobe() {
 
   if (!mounted) return null;
 
-  // Generate random nodes
-  const nodes = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    x: 50 + Math.cos((i * Math.PI * 2) / 12) * (30 + Math.random() * 15),
-    y: 50 + Math.sin((i * Math.PI * 2) / 12) * (30 + Math.random() * 15),
-    size: 3 + Math.random() * 4,
-    delay: Math.random() * 2,
-  }));
-
-  // Generate connections between nodes
-  const connections = [];
-  for (let i = 0; i < nodes.length; i++) {
-    for (let j = i + 1; j < nodes.length; j++) {
-      if (Math.random() > 0.6) {
-        connections.push({ from: nodes[i], to: nodes[j], delay: Math.random() * 2 });
-      }
-    }
-  }
-
   return (
-    <div className="relative w-full aspect-square max-w-lg mx-auto">
-      <svg viewBox="0 0 100 100" className="w-full h-full">
-        {/* Outer circle */}
-        <motion.circle
-          cx="50"
-          cy="50"
-          r="45"
+    <div className="relative w-full aspect-[2/1] max-w-2xl mx-auto">
+      <svg viewBox="0 0 100 60" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
+        {/* Simplified world map outline */}
+        <defs>
+          <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#E8D5D0" stopOpacity="0.3" />
+            <stop offset="50%" stopColor="#E8D5D0" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#E8D5D0" stopOpacity="0.3" />
+          </linearGradient>
+        </defs>
+        
+        {/* North America */}
+        <motion.path
+          d="M5,20 Q10,15 20,18 Q28,15 32,20 Q35,25 30,35 Q28,42 25,48 Q20,50 15,45 Q10,40 8,35 Q5,28 5,20"
           fill="none"
           stroke="currentColor"
           strokeWidth="0.3"
           className="text-pearl/20"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
+          transition={{ duration: 2, ease: "easeOut" }}
+        />
+        
+        {/* South America */}
+        <motion.path
+          d="M25,52 Q30,50 35,55 Q38,62 35,72 Q32,78 28,75 Q24,70 22,62 Q22,56 25,52"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.3"
+          className="text-pearl/20"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 2, delay: 0.2, ease: "easeOut" }}
+        />
+        
+        {/* Europe */}
+        <motion.path
+          d="M42,22 Q48,18 55,20 Q58,22 56,28 Q54,32 50,35 Q46,36 44,33 Q42,28 42,22"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.3"
+          className="text-pearl/20"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 2, delay: 0.3, ease: "easeOut" }}
+        />
+        
+        {/* Africa */}
+        <motion.path
+          d="M45,38 Q52,36 58,40 Q62,48 60,58 Q55,65 50,62 Q45,58 44,50 Q44,42 45,38"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.3"
+          className="text-pearl/20"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 2, delay: 0.4, ease: "easeOut" }}
+        />
+        
+        {/* Asia */}
+        <motion.path
+          d="M58,18 Q68,15 78,18 Q88,22 92,30 Q90,38 85,42 Q78,48 70,50 Q65,48 62,42 Q58,35 58,28 Q58,22 58,18"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.3"
+          className="text-pearl/20"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
+        />
+        
+        {/* Australia */}
+        <motion.path
+          d="M80,62 Q88,60 92,65 Q94,72 90,76 Q85,78 80,75 Q78,70 80,62"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.3"
+          className="text-pearl/20"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
         />
 
-        {/* Inner orbital rings */}
-        {[35, 25, 15].map((r, i) => (
-          <motion.ellipse
-            key={i}
-            cx="50"
-            cy="50"
-            rx={r}
-            ry={r * 0.4}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="0.2"
-            className="text-pearl/10"
-            style={{ transform: `rotate(${i * 30}deg)`, transformOrigin: "center" }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 + i * 0.2, duration: 1 }}
-          />
+        {/* Connection lines between cities */}
+        {connections.map((conn, i) => {
+          const from = cities[conn.from];
+          const to = cities[conn.to];
+          // Create curved path
+          const midX = (from.x + to.x) / 2;
+          const midY = Math.min(from.y, to.y) - 5;
+          
+          return (
+            <motion.path
+              key={i}
+              d={`M ${from.x} ${from.y} Q ${midX} ${midY} ${to.x} ${to.y}`}
+              fill="none"
+              stroke="url(#connectionGradient)"
+              strokeWidth="0.2"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ delay: 1.5 + i * 0.15, duration: 1 }}
+            />
+          );
+        })}
+
+        {/* City dots */}
+        {cities.map((city, i) => (
+          <g key={city.name}>
+            {/* Outer pulse ring */}
+            <motion.circle
+              cx={city.x}
+              cy={city.y}
+              r={city.size * 0.8}
+              fill="none"
+              stroke="#E8D5D0"
+              strokeWidth="0.15"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ 
+                scale: [1, 1.5, 1], 
+                opacity: [0.4, 0, 0.4] 
+              }}
+              transition={{ 
+                delay: 2 + i * 0.1,
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            {/* City dot */}
+            <motion.circle
+              cx={city.x}
+              cy={city.y}
+              r={city.size * 0.4}
+              className="fill-blush"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 1 + i * 0.1, duration: 0.4 }}
+            />
+          </g>
         ))}
-
-        {/* Connection lines */}
-        {connections.map((conn, i) => (
-          <motion.line
-            key={i}
-            x1={conn.from.x}
-            y1={conn.from.y}
-            x2={conn.to.x}
-            y2={conn.to.y}
-            stroke="currentColor"
-            strokeWidth="0.15"
-            className="text-pearl/20"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ delay: 1 + conn.delay, duration: 1.5 }}
-          />
-        ))}
-
-        {/* Nodes */}
-        {nodes.map((node) => (
-          <motion.circle
-            key={node.id}
-            cx={node.x}
-            cy={node.y}
-            r={node.size / 2}
-            className="fill-pearl/60"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.8 + node.delay * 0.3, duration: 0.5 }}
-          />
-        ))}
-
-        {/* Pulsing center node */}
-        <motion.circle
-          cx="50"
-          cy="50"
-          r="3"
-          className="fill-blush"
-          animate={{ scale: [1, 1.3, 1], opacity: [0.8, 1, 0.8] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        />
-
-        {/* Orbiting dot */}
-        <motion.circle
-          cx="50"
-          cy="5"
-          r="1.5"
-          className="fill-pearl/80"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          style={{ transformOrigin: "50px 50px" }}
-        />
       </svg>
-
-      {/* Highlighted node with ring */}
-      <motion.div
-        className="absolute top-1/4 right-1/4 w-6 h-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-      >
-        <div className="absolute inset-0 border border-pearl/40 rounded-full" />
-        <div className="absolute inset-2 bg-pearl/20 rounded-full" />
-      </motion.div>
     </div>
   );
 }
@@ -151,9 +208,9 @@ export default function WhoWeAre() {
         className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12"
       >
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left side - Animated Globe */}
+          {/* Left side - World Map Network */}
           <div className="order-2 lg:order-1">
-            <AnimatedGlobe />
+            <WorldMapNetwork />
           </div>
 
           {/* Right side - Content */}
