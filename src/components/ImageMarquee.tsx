@@ -7,9 +7,11 @@ const images = [
   { src: "/images/event-photo.jpg", alt: "Event experience" },
   { src: "/images/yacht-event.jpg", alt: "Yacht event" },
   { src: "/images/www-hero.png", alt: "Wings Wheels Water" },
+  { src: "/images/panel-discussion.jpg", alt: "Panel discussion" },
   { src: "/images/event-photo.jpg", alt: "Event experience" },
   { src: "/images/yacht-event.jpg", alt: "Yacht event" },
   { src: "/images/www-hero.png", alt: "Wings Wheels Water" },
+  { src: "/images/panel-discussion.jpg", alt: "Panel discussion" },
 ];
 
 export default function ImageMarquee() {
@@ -27,7 +29,7 @@ export default function ImageMarquee() {
         }}
         transition={{
           x: {
-            duration: 30,
+            duration: 60,
             repeat: Infinity,
             ease: "linear",
           },
