@@ -20,13 +20,31 @@ export default function ApplicationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/submit-application", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit application");
+      }
+
+      setIsSubmitted(true);
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -212,6 +230,13 @@ export default function ApplicationForm() {
               className="w-full bg-black-light border border-pearl/10 rounded-lg px-4 py-3 text-pearl placeholder-text-muted focus:outline-none focus:border-blush/50 transition-colors resize-none"
             />
           </div>
+
+          {/* Error message */}
+          {error && (
+            <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+              {error}
+            </div>
+          )}
 
           {/* Submit */}
           <div className="pt-4">
